@@ -14,7 +14,6 @@ function mostrarFormulario() {
 
     <input id="ip" placeholder="IP (ej: 192.168.1.10)">
     <input id="puerto" placeholder="Puerto (ej: 5000)">
-    <input id="ruta" placeholder="Ruta BD (opcional)">
 
     <button onclick="guardar()">Guardar</button>
   `;
@@ -23,7 +22,6 @@ function mostrarFormulario() {
 window.guardar = function() {
   const ip = document.getElementById("ip").value.trim();
   const puerto = document.getElementById("puerto").value.trim();
-  const ruta = document.getElementById("ruta").value.trim();
 
   if (!ip || !puerto) {
     alert("IP y puerto son obligatorios");
