@@ -1,10 +1,10 @@
 export function iniciarApp() {
-  const config = localStorage.getItem("config");
+  const config = JSON.parse(localStorage.getItem("config"));
 
   if (!config) {
     mostrarFormulario();
   } else {
-    iniciarWeb(JSON.parse(config));
+    cargarSistema(config);
   }
 }
 
@@ -31,17 +31,16 @@ window.guardar = function () {
   location.reload();
 };
 
-function iniciarWeb(config) {
-  const url = config.server;
-
-  document.documentElement.innerHTML = "";
+function cargarSistema(config) {
+  // 🔥 IMPORTANTE: AQUÍ VA LA SOLUCIÓN FINAL
 
   const iframe = document.createElement("iframe");
 
-  iframe.src = url;
+  iframe.src = config.server;
   iframe.style.width = "100%";
   iframe.style.height = "100vh";
   iframe.style.border = "none";
 
+  document.body.innerHTML = "";
   document.body.appendChild(iframe);
 }
