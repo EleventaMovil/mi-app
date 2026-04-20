@@ -34,5 +34,14 @@ window.guardar = function () {
 function iniciarWeb(config) {
   const url = config.server;
 
-  window.location.replace(url);
+  document.documentElement.innerHTML = "";
+
+  const iframe = document.createElement("iframe");
+
+  iframe.src = url;
+  iframe.style.width = "100%";
+  iframe.style.height = "100vh";
+  iframe.style.border = "none";
+
+  document.body.appendChild(iframe);
 }
