@@ -34,6 +34,7 @@
                 android:resource="@xml/file_paths"></meta-data>
         </provider>
     </application>
+	    android:usesCleartextTraffic="true"
 
     <!-- Permissions -->
 

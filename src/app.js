@@ -4,7 +4,7 @@ export function iniciarApp() {
   if (!config) {
     mostrarFormulario();
   } else {
-    cargarSistema(config);
+    cargarFlask(config);
   }
 }
 
@@ -23,24 +23,25 @@ window.guardar = function () {
   const ip = document.getElementById("ip").value;
   const puerto = document.getElementById("puerto").value;
 
-  const config = {
+  localStorage.setItem("config", JSON.stringify({
     server: `http://${ip}:${puerto}`
-  };
+  }));
 
-  localStorage.setItem("config", JSON.stringify(config));
   location.reload();
 };
 
-function cargarSistema(config) {
-  // 🔥 IMPORTANTE: AQUÍ VA LA SOLUCIÓN FINAL
-
-  const iframe = document.createElement("iframe");
-
-  iframe.src = config.server;
-  iframe.style.width = "100%";
-  iframe.style.height = "100vh";
-  iframe.style.border = "none";
-
-  document.body.innerHTML = "";
-  document.body.appendChild(iframe);
+// 🔥 ESTE ES EL PASO 3 (AQUÍ VA)
+function cargarFlask(config) {
+  document.open();
+  document.write(`
+    <html>
+      <body style="margin:0;padding:0;overflow:hidden;">
+        <iframe 
+          src="${config.server}" 
+          style="width:100vw;height:100vh;border:none;">
+        </iframe>
+      </body>
+    </html>
+  `);
+  document.close();
 }
