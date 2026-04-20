@@ -32,5 +32,10 @@ window.guardar = function () {
 };
 
 function iniciarWeb(config) {
-  document.body.innerHTML = `<iframe src="${config.server}" style="width:100%;height:100vh;border:none;"></iframe>`;
+  document.body.innerHTML = `
+    <iframe 
+      src="${config.server}" 
+      style="width:100%; height:100vh; border:none;">
+    </iframe>
+  `;
 }
