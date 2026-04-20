@@ -1,5 +1,8 @@
 {
   "appId": "com.miapp.app",
-  "appName": "miapp",
-  "webDir": "dist"
+  "appName": "Mi App",
+  "webDir": "dist",
+  "server": {
+    "cleartext": true
+  }
 }
